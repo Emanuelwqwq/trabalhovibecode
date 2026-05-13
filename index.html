@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>LOJA DO JÃO | Ultimate Gaming Store</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('YOUR_PUBLIC_KEY');
+  </script>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <div id="toast" class="toast">
+    PRODUTO ADICIONADO! 🎮
+  </div>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="nav-logo" onclick="voltarHome()">
+      LOJA DO JÃO
+    </div>
+
+    <button class="cart-btn" onclick="toggleCart(true)">
+
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+
+      <span class="cart-count" id="cartCount">
+        0
+      </span>
+
+    </button>
+
+  </nav>
+
+  <!-- HOME -->
+
+  <main id="homePage">
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <h1 class="hero-title">
+          O FUTURO DO<br>
+
+          <span style="color:var(--accent)">
+            RETRO GAMING
+          </span>
+        </h1>
+
+        <a href="#produtos" class="hero-cta">
+          VER COLEÇÃO
+        </a>
+
+      </div>
+
+    </section>
+
+    <section class="produtos" id="produtos">
+      <div class="grid" id="grid"></div>
+    </section>
+
+  </main>
+
+  <!-- CHECKOUT -->
+
+  <main id="checkoutPage" style="display:none;">
+
+    <div class="checkout-container">
+
+      <div class="checkout-card">
+
+        <div class="order-summary">
+          <h3>Resumo do Pedido</h3>
+          <div id="orderItems" style="margin-bottom: 15px;"></div>
+          <div style="border-top: 1px solid #2b2b38; padding-top: 15px;">
+            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+              <span>Total:</span>
+              <span id="orderTotal" style="color: var(--accent);">R$ 0,00</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="step-address">
+
+          <h2 class="checkout-title">
+            ENTREGA
+          </h2>
+
+          <input
+            type="text"
+            id="cep"
+            placeholder="CEP (ex: 12345-678)"
+            class="pay-input"
+            maxlength="9"
+            oninput="formatarCEP(this)"
+          >
+
+          <input
+            type="text"
+            id="endereco"
+            placeholder="Endereço"
+            class="pay-input"
+          >
+
+          <input
+            type="text"
+            id="numero"
+            placeholder="Número"
+            class="pay-input"
+          >
+
+          <input
+            type="text"
+            id="cidade"
+            placeholder="Cidade"
+            class="pay-input"
+          >
+
+          <input
+            type="text"
+            id="complemento"
+            placeholder="Complemento (opcional)"
+            class="pay-input"
+          >
+
+          <input
+            type="email"
+            id="email"
+            placeholder="E-mail"
+            class="pay-input"
+          >
+
+          <input
+            type="text"
+            id="telefone"
+            placeholder="Telefone (ex: 11 98765-4321)"
+            class="pay-input"
+            oninput="formatarTelefone(this)"
+          >
+
+          <div class="btn-group">
+
+            <button
+              class="back-btn"
+              onclick="voltarHome()"
+            >
+              VOLTAR
+            </button>
+
+            <button
+              class="finish-btn"
+              onclick="goToPayment()"
+            >
+              PRÓXIMO
+            </button>
+
+          </div>
+
+        </div>
+
+        <div id="step-payment" style="display:none;">
+
+          <h2 class="checkout-title">
+            CONFIRMAÇÃO
+          </h2>
+
+          <div class="payment-review">
+            <div class="review-section">
+              <h4>Endereço de Entrega</h4>
+              <div id="pay-content"></div>
+            </div>
+          </div>
+
+          <div class="payment-methods-container">
+            <h3 style="margin-bottom: 20px; font-size: 18px;">Escolha o Método de Pagamento</h3>
+            
+            <div class="payment-options">
+              <div class="payment-option" onclick="selecionarPagamento('pix')" id="opt-pix">
+                <div class="payment-icon">💳</div>
+                <div class="payment-name">PIX</div>
+                <div class="payment-desc">Transferência instantânea</div>
+              </div>
+              
+              <div class="payment-option" onclick="selecionarPagamento('cartao')" id="opt-cartao">
+                <div class="payment-icon">💰</div>
+                <div class="payment-name">Cartão de Crédito</div>
+                <div class="payment-desc">Até 12x sem juros</div>
+              </div>
+              
+              <div class="payment-option" onclick="selecionarPagamento('paypal')" id="opt-paypal">
+                <div class="payment-icon">🌐</div>
+                <div class="payment-name">PayPal</div>
+                <div class="payment-desc">Compre com segurança</div>
+              </div>
+            </div>
+
+            <div id="payment-details" style="margin-top: 25px; display: none;"></div>
+          </div>
+
+          <button
+            class="finish-btn"
+            style="width:100%;margin-top:20px"
+            onclick="finalizarCompra()"
+          >
+            FINALIZAR COMPRA
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- CARRINHO -->
+
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="toggleCart(false)"
+  ></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+
+      <h3>MEU CARRINHO</h3>
+
+      <button
+        onclick="toggleCart(false)"
+        class="close-btn"
+      >
+        &times;
+      </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>TOTAL</span>
+
+        <span id="cartTotal">
+          R$ 0,00
+        </span>
+
+      </div>
+
+      <button
+        class="checkout-btn-premium"
+        onclick="irParaCheckout()"
+      >
+        FECHAR PEDIDO
+      </button>
+
+    </div>
+
+  </aside>
+  <script>
+    // Carregar carrinho do localStorage ao iniciar
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('loja_carrinho');
+      if (saved) {
+        carrinho = JSON.parse(saved);
+        atualizarCarrinho();
+      }
+    });
+  </script>
+
+  <script src="app.js"></script>
+
+  <script>
+    // INSTRUCOES PARA CONFIGURAR ENVIO DE EMAIL:
+    // 1. Acesse https://www.emailjs.com e crie uma conta gratuita
+    // 2. Na aba "Email Services", configure seu Gmail ou outro email
+    // 3. Na aba "Email Templates", crie um template com ID: template_pedido
+    //    Use as seguintes variaveis no template:
+    //    {{pedido_numero}} - Numero do pedido
+    //    {{to_name}} - Nome do cliente
+    //    {{produtos}} - Tabela HTML com produtos
+    //    {{total}} - Total da compra
+    //    {{endereco}}, {{numero}}, {{complemento}}, {{cidade}}, {{cep}} - Endereco
+    //    {{telefone}} - Telefone
+    //    {{metodo_pagamento}} - Metodo de pagamento
+    // 4. Copie sua PUBLIC_KEY e substitua 'YOUR_PUBLIC_KEY' no inicio do app.js
+    // 5. Copie seu Service ID e Template ID e atualize as constantes no app.js
+  </script>
+
+</body>
+</html>
