@@ -3,37 +3,312 @@ const produtos = [
     id: 1,
     nome: 'Nintendo 64',
     preco: 3899.9,
-    img: 'https://toppng.com/uploads/preview/the-success-of-the-playstation-required-an-action-by-nintendo-64-11563330254poywdtdgp7.png'
+    desconto: 15,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Nintendo-64-Console-FL.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
+    descricao: 'Nintendo 64 Original - Console da 5ª Geração',
+    especificacoes: ['Processador 64-bit', '4MB de RAM', 'Saídas de vídeo composto', 'Cabo de energia incluso'],
+    avaliacao: 4.5,
+    reviews: 128,
+    avaliacoes: [
+      { usuario: 'João Silva', nota: 5, texto: 'Console em perfeito estado! Chegou bem embalado. Recomendo!' },
+      { usuario: 'Maria Santos', nota: 4, texto: 'Bom custo-benefício, funcionando perfeitamente.' },
+      { usuario: 'Carlos Oliveira', nota: 5, texto: 'Melhor compra que já fiz! Produto original e confiável.' }
+    ],
+    estoque: 10
   },
   {
     id: 2,
     nome: 'PlayStation 1 Fat',
     preco: 4799.9,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/9/95/PSX-Console-wController.png'
+    desconto: 10,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/9/95/PSX-Console-wController.png',
+    descricao: 'PlayStation 1 Original Fat - Console clássico',
+    especificacoes: ['Processador MIPS', '2MB de RAM', 'Suporte a CDs', 'Controle original incluso'],
+    avaliacao: 4.8,
+    reviews: 256,
+    avaliacoes: [
+      { usuario: 'Pedro Costa', nota: 5, texto: 'Excelente produto! Superou minhas expectativas.' },
+      { usuario: 'Ana Paula', nota: 5, texto: 'Produto original com excelente qualidade. Muito satisfeita!' },
+      { usuario: 'Roberto Dias', nota: 4, texto: 'Ótima qualidade, chegou antes do prazo.' }
+    ],
+    estoque: 8
   },
   {
     id: 3,
     nome: 'Sega Genesis Edition',
     preco: 2989.0,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Sega-Mega-Drive-JP-Mk1-Console-Set.jpg'
+    desconto: 20,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Sega-Mega-Drive-JP-Mk1-Console-Set.jpg',
+    descricao: 'Sega Genesis/Mega Drive - Console retro premium',
+    especificacoes: ['Processador Motorola 68000', '64KB de RAM', 'Saída de vídeo RF/RCA', 'Joystick original'],
+    avaliacao: 4.3,
+    reviews: 89,
+    avaliacoes: [
+      { usuario: 'Lucas Martins', nota: 4, texto: 'Produto muito bom, com desconto fantástico!' },
+      { usuario: 'Fernanda Gomes', nota: 4, texto: 'Console em ótimas condições, funcionando perfeitamente.' },
+      { usuario: 'Bruno Ferreira', nota: 5, texto: 'Melhor preço que encontrei no mercado!' }
+    ],
+    estoque: 15
+  },
+  {
+    id: 4,
+    nome: 'Super Mario 64',
+    preco: 149.9,
+    desconto: 5,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/pt/7/7b/Super_Mario_64_front.jpg',
+    descricao: 'Jogo clássico Super Mario 64 para Nintendo 64',
+    especificacoes: ['Jogo original', 'Cartucho em excelente estado', 'Manual incluído', 'Compatível com Nintendo 64'],
+    avaliacao: 4.9,
+    reviews: 342,
+    avaliacoes: [
+      { usuario: 'Marina L.', nota: 5, texto: 'Jogo impecável, nostalgia pura! Adorei.' },
+      { usuario: 'Felipe A.', nota: 5, texto: 'Cartucho em ótimo estado e entrega rápida.' },
+      { usuario: 'Lara R.', nota: 4, texto: 'Jogo autêntico, vale cada centavo.' }
+    ],
+    estoque: 20
   },
   {
     id: 5,
     nome: 'Sony PlayStation 2',
     preco: 6999.9,
-    img: 'https://i5.walmartimages.com/asr/7348e500-9536-4ee6-9117-1bc0949fe008.4d224836742f0cc1d9529023d521e2cf.jpeg'
+    desconto: 0,
+    novidade: true,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/5/58/PS2-Fat-Console-Set.png',
+    descricao: 'PlayStation 2 Fat - Edição Especial Recém-Chegada',
+    especificacoes: ['Processador Emotion Engine', '32MB de RAM', 'DVD-ROM Drive', 'Hard Drive 40GB', 'Controle DualShock 2'],
+    avaliacao: 4.9,
+    reviews: 512,
+    avaliacoes: [
+      { usuario: 'Gustavo Rocha', nota: 5, texto: 'PS2 original! Melhor console de todos os tempos. Estou muito feliz!' },
+      { usuario: 'Juliana Lima', nota: 5, texto: 'Produto novo, excelente embalagem. Recomendo muito!' },
+      { usuario: 'Rafael Sousa', nota: 5, texto: 'Finalmente encontrei um PS2 original de qualidade. Muito obrigado!' }
+    ],
+    estoque: 5
   },
   {
     id: 6,
     nome: 'Xbox Original',
-    preco: 2899.9,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Xbox_console.png/220px-Xbox_console.png'
+    preco: 7599.9,
+    desconto: 12,
+    novidade: true,
+    img: 'https://www.vhv.rs/dpng/d/517-5177216_xbox-png-image-xbox-classic-transparent-png.png',
+    descricao: 'Xbox Original - Primeiro console da Microsoft',
+    especificacoes: ['Processador Pentium III', '64MB de RAM', 'Hard Drive 8GB interno', 'Saída de vídeo RCA/S-Vídeo', 'Controle original'],
+    avaliacao: 4.2,
+    reviews: 176,
+    avaliacoes: [
+      { usuario: 'Thiago Alves', nota: 4, texto: 'Xbox em bom estado! Funcionando muito bem.' },
+      { usuario: 'Camila Mendes', nota: 4, texto: 'Produto original, chegou rápido e bem embalado.' },
+      { usuario: 'Ricardo Pinto', nota: 5, texto: 'Excelente qualidade e preço justo. Muito satisfeito!' }
+    ],
+    estoque: 12
   },
   {
     id: 7,
+    nome: 'The Legend of Zelda: Ocarina of Time',
+    preco: 189.9,
+    desconto: 10,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/pt/1/17/The_Legend_of_Zelda_Ocarina_of_Time_capa.png',
+    descricao: 'Jogo lendário para Nintendo 64 - Ocarina of Time',
+    especificacoes: ['Cartucho original', 'Manual incluso', 'Aventura épica', 'Ótimo estado'],
+    avaliacao: 5.0,
+    reviews: 415,
+    avaliacoes: [
+      { usuario: 'Eduardo N.', nota: 5, texto: 'Jogo nunca visto antes tão bem conservado.' },
+      { usuario: 'Patrícia M.', nota: 5, texto: 'Entrega rápida e embalagem perfeita.' },
+      { usuario: 'André L.', nota: 5, texto: 'A melhor aventura de todos os tempos.' }
+    ],
+    estoque: 18
+  },
+  {
+    id: 8,
+    nome: 'Final Fantasy VII',
+    preco: 179.9,
+    desconto: 8,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg',
+    descricao: 'RPG clássico Final Fantasy VII para PlayStation 1',
+    especificacoes: ['CD original', 'Manual incluso', 'Jogos de turnos', 'Clássico colecionável'],
+    avaliacao: 4.7,
+    reviews: 298,
+    avaliacoes: [
+      { usuario: 'Samanta V.', nota: 5, texto: 'RPG completo e em excelente condição.' },
+      { usuario: 'Diego C.', nota: 4, texto: 'Ótimo jogo, nostalgia garantida.' },
+      { usuario: 'Tatiana S.', nota: 5, texto: 'Produto realmente colecionável e original.' }
+    ],
+    estoque: 10
+  },
+  {
+    id: 9,
+    nome: 'Nintendo Switch OLED',
+    preco: 10999.9,
+    desconto: 0,
+    novidade: false,
+    futuro: true,
+    img: 'https://images.tcdn.com.br/img/img_prod/872390/console_nintendo_switch_oled_64gb_edicao_mario_kart_8_deluxe_branco_1563_2_eb51aa2716573233f2e69a75f57cf472.jpg',
+    descricao: 'Console Nintendo Switch OLED com tela vibrante',
+    especificacoes: ['Tela OLED 7"', '64GB interno', 'Joy-Con inclusos', 'Dock e cabo HDMI'],
+    avaliacao: 4.8,
+    reviews: 220,
+    avaliacoes: [
+      { usuario: 'Marcos F.', nota: 5, texto: 'Console perfeito, imagem incrível.' },
+      { usuario: 'Juliana T.', nota: 5, texto: 'Combinação ótima de portabilidade e qualidade.' },
+      { usuario: 'Caio R.', nota: 4, texto: 'Excelente produto, entrega sem problemas.' }
+    ],
+    estoque: 25
+  },
+  {
+    id: 10,
+    nome: 'Super Nintendo Entertainment System',
+    preco: 3299.9,
+    desconto: 10,
+    estoque: 5,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/SNES-Mod1-Console-Set.png',
+    descricao: 'Console clássico da Nintendo, 16-bit.',
+    especificacoes: ['Processador 16-bit', '2MB de RAM', 'Controle original incluso'],
+    avaliacao: 4.7,
+    reviews: 150,
+    plataforma: 'Super Nintendo',
+    genero: 'Console',
+    classificacao: 'Livre'
+  },
+  {
+    id: 11,
+    nome: 'The Legend of Zelda: A Link to the Past',
+    preco: 199.9,
+    desconto: 5,
+    estoque: 10,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/en/a/a2/The_Legend_of_Zelda_A_Link_to_the_Past_SNES_Game_Cover.jpg',
+    descricao: 'Jogo clássico de aventura para SNES.',
+    especificacoes: ['Cartucho original', 'Manual incluso'],
+    avaliacao: 4.9,
+    reviews: 300,
+    plataforma: 'Super Nintendo',
+    genero: 'Aventura',
+    classificacao: '10+'
+  },
+  {
+    id: 12,
+    nome: 'Sonic the Hedgehog',
+    preco: 149.9,
+    desconto: 8,
+    estoque: 8,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/en/a/a5/Sonic_the_Hedgehog_1_Genesis_box_art.jpg',
+    descricao: 'Jogo clássico de plataforma para Sega Genesis.',
+    especificacoes: ['Cartucho original', 'Manual incluso'],
+    avaliacao: 4.8,
+    reviews: 250,
+    plataforma: 'Sega Genesis',
+    genero: 'Plataforma',
+    classificacao: 'Livre'
+  },
+  {
+    id: 13,
     nome: 'Game Boy Color',
+    preco: 899.9,
+    desconto: 15,
+    estoque: 7,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Game-Boy-Color-Purple.jpg',
+    descricao: 'Console portátil clássico da Nintendo.',
+    especificacoes: ['Tela colorida', 'Portátil', 'Compatível com jogos de Game Boy'],
+    avaliacao: 4.6,
+    reviews: 120,
+    plataforma: 'Game Boy',
+    genero: 'Console',
+    classificacao: 'Livre'
+  },
+  {
+    id: 14,
+    nome: 'Pokémon Red',
+    preco: 179.9,
+    desconto: 10,
+    estoque: 12,
+    novidade: false,
+    img: 'https://upload.wikimedia.org/wikipedia/en/0/03/Pokemon_Red_Boxart.jpg',
+    descricao: 'Jogo clássico de RPG para Game Boy.',
+    especificacoes: ['Cartucho original', 'Manual incluso'],
+    avaliacao: 4.9,
+    reviews: 400,
+    plataforma: 'Game Boy',
+    genero: 'RPG',
+    classificacao: 'Livre'
+  },
+  {
+    id: 15,
+    nome: 'Nintendo Wii',
     preco: 1299.9,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Game_Boy_Color.png/220px-Game_Boy_Color.png'
+    desconto: 5,
+    estoque: 6,
+    novidade: false,
+    futuro: true,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Wii-console.jpg',
+    descricao: 'Console inovador da Nintendo.',
+    especificacoes: ['Controle por movimento', 'Compatível com jogos de GameCube'],
+    avaliacao: 4.5,
+    reviews: 200,
+    plataforma: 'Nintendo Wii',
+    genero: 'Console',
+    classificacao: 'Livre'
+  },
+  {
+    id: 16,
+    nome: 'Mario Kart Wii',
+    preco: 249.9,
+    desconto: 10,
+    estoque: 15,
+    novidade: false,
+    futuro: true,
+    img: 'https://upload.wikimedia.org/wikipedia/en/3/3e/Mario_Kart_Wii.png',
+    descricao: 'Jogo de corrida para Nintendo Wii.',
+    especificacoes: ['CD original', 'Manual incluso'],
+    avaliacao: 4.8,
+    reviews: 350,
+    plataforma: 'Nintendo Wii',
+    genero: 'Corrida',
+    classificacao: 'Livre'
+  },
+  {
+    id: 17,
+    nome: 'PlayStation 3',
+    preco: 1599.9,
+    desconto: 10,
+    estoque: 4,
+    novidade: false,
+    futuro: true,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/PS3-fat-console.png',
+    descricao: 'Console de última geração da Sony.',
+    especificacoes: ['Blu-ray', 'HDMI', 'Controle DualShock 3'],
+    avaliacao: 4.7,
+    reviews: 180,
+    plataforma: 'PlayStation 3',
+    genero: 'Console',
+    classificacao: 'Livre'
+  },
+  {
+    id: 18,
+    nome: 'The Last of Us',
+    preco: 299.9,
+    desconto: 5,
+    estoque: 10,
+    novidade: false,
+    futuro: true,
+    img: 'https://upload.wikimedia.org/wikipedia/en/a/a9/The_Last_of_Us_cover.jpg',
+    descricao: 'Jogo de ação e aventura para PS3.',
+    especificacoes: ['CD original', 'Manual incluso'],
+    avaliacao: 4.9,
+    reviews: 500,
+    plataforma: 'PlayStation 3',
+    genero: 'Ação e Aventura',
+    classificacao: '18+'
   }
 ];
 
@@ -41,6 +316,7 @@ let carrinho = [];
 
 function showToast(msg = 'PRODUTO ADICIONADO! 🎮', type = 'success') {
   const t = document.getElementById('toast');
+  if (!t) return;
   t.textContent = msg;
   t.className = `toast ${type}`;
   t.classList.add('show');
@@ -50,18 +326,44 @@ function showToast(msg = 'PRODUTO ADICIONADO! 🎮', type = 'success') {
   }, 2500);
 }
 
-function renderProdutos() {
-  document.getElementById('grid').innerHTML =
-    produtos.map(p => `
+function filtrarProdutos(termo) {
+  const termoLower = termo.toLowerCase();
+  const produtosFiltrados = produtos.filter(p =>
+    p.nome.toLowerCase().includes(termoLower) ||
+    p.descricao.toLowerCase().includes(termoLower)
+  );
+  renderProdutos(produtosFiltrados);
+}
+
+function renderProdutos(lista = produtos) {
+  const grid = document.getElementById('grid');
+  if (!grid) return;
+  grid.innerHTML =
+    lista.map(p => {
+      const precoComDesconto = p.preco - (p.preco * p.desconto / 100);
+      return `
       <div class="card">
-        <img src="${p.img}" class="card-img">
+        <div class="card-img-container" onclick="abrirDetalhesProduto(${p.id})">
+          ${p.futuro ? '<div class="badge-futuro">DO FUTURO</div>' : ''}
+          ${p.novidade ? '<div class="badge-novidade">🆕 NOVIDADE</div>' : ''}
+          ${p.desconto > 0 ? `<div class="badge-desconto">-${p.desconto}%</div>` : ''}
+          <img src="${p.img}" class="card-img">
+        </div>
 
         <div class="card-body">
           <h3>${p.nome}</h3>
 
-          <span class="card-price">
-            R$ ${p.preco.toLocaleString('pt-BR')}
-          </span>
+          <div class="price-section">
+            ${p.desconto > 0 ? `<span class="original-price">R$ ${p.preco.toLocaleString('pt-BR')}</span>` : ''}
+            <span class="card-price">
+              R$ ${precoComDesconto.toFixed(2).replace('.', ',')}
+            </span>
+          </div>
+
+          <div class="rating">
+            <span class="stars">⭐ ${p.avaliacao}</span>
+            <span class="review-count">(${p.reviews})</span>
+          </div>
 
           <button
             class="add-btn"
@@ -71,23 +373,38 @@ function renderProdutos() {
           </button>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 function adicionarAoCarrinho(id) {
   const p = produtos.find(x => x.id === id);
+  const preco = p.preco - (p.preco * p.desconto / 100);
+
+  if (p.estoque <= 0) {
+    showToast('Produto esgotado! ❌', 'error');
+    return;
+  }
 
   const item = carrinho.find(x => x.id === id);
 
   if (item) {
-    item.qty++;
+    if (item.qty < (p.estoque + item.qty)) {
+      item.qty++;
+    } else {
+      showToast('Estoque insuficiente! ❌', 'error');
+      return;
+    }
   } else {
     carrinho.push({
       ...p,
-      qty: 1
+      preco: preco,
+      qty: 1,
+      selecionado: true
     });
   }
 
+  p.estoque--;
   atualizarCarrinho();
   showToast();
 }
@@ -96,80 +413,76 @@ function atualizarCarrinho() {
   document.getElementById('cartCount').textContent =
     carrinho.reduce((a, b) => a + b.qty, 0);
 
-  const total =
-    carrinho.reduce((a, b) => a + (b.preco * b.qty), 0);
+  const totalSelecionado = carrinho
+    .filter(item => item.selecionado !== false)
+    .reduce((a, b) => a + (b.preco * b.qty), 0);
 
   document.getElementById('cartTotal').textContent =
-    `R$ ${total.toLocaleString('pt-BR', {
+    `R$ ${totalSelecionado.toLocaleString('pt-BR', {
       minimumFractionDigits: 2
     })}`;
 
-  // Salvar carrinho no localStorage
   localStorage.setItem('loja_carrinho', JSON.stringify(carrinho));
 
   document.getElementById('cartItems').innerHTML =
     carrinho.length === 0 ? '<p style="text-align: center; color: #888;">Carrinho vazio</p>' :
     carrinho.map(c => `
-      <div class="cart-item-ui">
-
-        <img src="${c.img}" class="cart-img-mini">
-
-        <div style="flex:1">
-          <p style="font-size:14px">${c.nome}</p>
-          <b>${c.qty}x</b>
+      <div class="cart-item">
+        <img src="${c.img}" alt="${c.nome}" class="cart-item-img">
+        <div class="cart-item-info">
+          <h4>${c.nome}</h4>
+          <p>R$ ${c.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+          <input type="number" class="cart-item-qty" value="${c.qty}" min="1" onchange="mudarQtd(${c.id}, parseInt(this.value) - ${c.qty})">
         </div>
-
-        <button
-          onclick="mudarQtd(${c.id}, -1)"
-          style="
-            border:none;
-            background:none;
-            color:red;
-            cursor:pointer;
-            font-size:18px;
-          "
-        >
-          ✕
-        </button>
-
       </div>
     `).join('');
 }
 
 function mudarQtd(id, d) {
   const i = carrinho.find(x => x.id === id);
+  const p = produtos.find(x => x.id === id);
 
-  if (i) {
+  if (i && p) {
+    if (d > 0 && p.estoque < d) {
+      showToast('Estoque insuficiente! ❌', 'error');
+      atualizarCarrinho();
+      return;
+    }
+
     i.qty += d;
+    p.estoque -= d;
 
     if (i.qty <= 0) {
-      carrinho =
-        carrinho.filter(x => x.id !== id);
+      carrinho = carrinho.filter(x => x.id !== id);
     }
   }
 
   atualizarCarrinho();
 }
 
-function toggleCart(s) {
-  document
-    .getElementById('cartDrawer')
-    .classList.toggle('open', s);
+function toggleSelecionarItem(id) {
+  const item = carrinho.find(x => x.id === id);
+  if (item) {
+    item.selecionado = item.selecionado === false ? true : false;
+    atualizarCarrinho();
+  }
+}
 
-  document
-    .getElementById('cartOverlay')
-    .classList.toggle('open', s);
+function toggleCart(s) {
+  document.getElementById('cartDrawer').classList.toggle('open', s);
+  document.getElementById('cartOverlay').classList.toggle('open', s);
 }
 
 function irParaCheckout() {
-  if (!carrinho.length) {
-    showToast('Carrinho vazio!', 'error');
+  const carrinhoSelecionado = carrinho.filter(item => item.selecionado !== false);
+
+  if (!carrinhoSelecionado.length) {
+    showToast('Selecione pelo menos um produto!', 'error');
     return;
   }
 
-  // Atualizar resumo do pedido
-  const total = carrinho.reduce((a, b) => a + (b.preco * b.qty), 0);
-  const items = carrinho.map(c => `
+  const total = carrinhoSelecionado.reduce((a, b) => a + (b.preco * b.qty), 0);
+  const items = carrinhoSelecionado.map(c => `
     <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
       <span>${c.nome}</span>
       <span>${c.qty}x R$ ${(c.preco).toLocaleString('pt-BR')}</span>
@@ -186,7 +499,6 @@ function irParaCheckout() {
 
 function voltarHome() {
   document.getElementById('homePage').style.display = 'block';
-
   document.getElementById('checkoutPage').style.display = 'none';
 }
 
@@ -212,8 +524,6 @@ function formatarTelefone(i) {
   i.value = valor;
 }
 
-/* CONSERTADO */
-
 function goToPayment() {
   const cep = document.getElementById('cep').value.trim();
   const endereco = document.getElementById('endereco').value.trim();
@@ -223,7 +533,6 @@ function goToPayment() {
   const email = document.getElementById('email').value.trim();
   const telefone = document.getElementById('telefone').value.trim();
 
-  // Validações
   if (cep.length < 9) {
     showToast('CEP inválido!', 'error');
     return;
@@ -249,16 +558,7 @@ function goToPayment() {
     return;
   }
 
-  // Salvar dados da entrega
-  const enderecoDados = {
-    cep,
-    endereco,
-    numero,
-    complemento,
-    cidade,
-    email,
-    telefone
-  };
+  const enderecoDados = { cep, endereco, numero, complemento, cidade, email, telefone };
   localStorage.setItem('loja_endereco', JSON.stringify(enderecoDados));
 
   document.getElementById('step-address').style.display = 'none';
@@ -276,17 +576,14 @@ function goToPayment() {
   `;
 }
 
-// Variaveis de pagamento
 let metodo_pagamento_selecionado = 'pix';
-const CHAVE_PIX = '08210191390';
+const CHAVE_PIX = '89981287978';
 const WHATSAPP_NUMERO = '5589981287978';
 
-// Configuracao EmailJS
 const EMAIL_SERVICE_ID = 'service_lojajoao';
 const EMAIL_TEMPLATE_ID = 'template_pedido';
 const EMAIL_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
-// Inicializar EmailJS
 try {
   emailjs.init(EMAIL_PUBLIC_KEY);
 } catch (e) {
@@ -306,14 +603,25 @@ function selecionarPagamento(metodo) {
   const total = carrinho.reduce((a, b) => a + (b.preco * b.qty), 0);
   
   if (metodo === 'pix') {
+    const valorTotal = total.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(CHAVE_PIX)}&format=png`;
+    
     detailsDiv.innerHTML = `
       <div class="payment-detail-box">
-        <h4>Chave PIX:</h4>
+        <h4>PIX - Código QR</h4>
+        <p style="font-size: 13px; color: #999; margin-bottom: 15px;">Escaneie o código abaixo com seu aplicativo bancário</p>
+        <div style="text-align: center; margin: 20px 0;">
+          <img src="${qrApiUrl}" alt="QR Code PIX" style="width: 250px; height: 250px; border-radius: 12px; padding: 15px; background: white; border: 3px solid var(--accent);" loading="lazy">
+        </div>
+        <h4 style="margin-top: 25px;">Chave PIX (CPF/CNPJ/Telefone/Email):</h4>
         <div class="pix-key" onclick="copiarChavePix()" style="cursor: pointer;">
           <span>${CHAVE_PIX}</span>
           <span style="margin-left: 10px; color: var(--accent);">📋 Copiar</span>
         </div>
-        <p style="font-size: 12px; color: #888; margin-top: 10px;">Clique para copiar a chave PIX</p>
+        <p style="font-size: 12px; color: #888; margin-top: 10px;">Clique para copiar a chave PIX ou escaneie o QR Code</p>
+        <p style="font-size: 14px; color: var(--accent); margin-top: 20px; font-weight: bold; background: rgba(168, 85, 247, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent);">
+          Total: <span style="font-size: 20px;">R$ ${valorTotal}</span>
+        </p>
       </div>
     `;
   } else if (metodo === 'cartao') {
@@ -355,9 +663,11 @@ function gerarOpcoesParcelas(total) {
 function enviarMensagemWhatsApp() {
   const endereco = localStorage.getItem('loja_endereco');
   const enderecoData = JSON.parse(endereco);
-  const total = carrinho.reduce((a, b) => a + (b.preco * b.qty), 0);
   
-  const itens = carrinho.map(c => `- ${c.nome} (${c.qty}x)`).join('%0A');
+  const carrinhoSelecionado = carrinho.filter(item => item.selecionado !== false);
+  const total = carrinhoSelecionado.reduce((a, b) => a + (b.preco * b.qty), 0);
+  
+  const itens = carrinhoSelecionado.map(c => `- ${c.nome} (${c.qty}x)`).join('%0A');
   
   const mensagem = `*NOVO PEDIDO RECEBIDO*%0A%0A*Produtos:*%0A${itens}%0A%0A*Total: R$ ${total.toLocaleString('pt-BR', {minimumFractionDigits: 2})}*%0A%0A*Dados de Entrega:*%0AEndereco: ${enderecoData.endereco}, ${enderecoData.numero}%0AComplemento: ${enderecoData.complemento || 'N/A'}%0ACidade: ${enderecoData.cidade}%0ACEP: ${enderecoData.cep}%0A%0A*Contato:*%0AEmail: ${enderecoData.email}%0ATelefone: ${enderecoData.telefone}%0A%0A*Metodo de Pagamento: ${metodo_pagamento_selecionado.toUpperCase()}*`;
   
@@ -400,43 +710,172 @@ function enviarEmailConfirmacao() {
 }
 
 function finalizarCompra() {
-  if (!metodo_pagamento_selecionado) {
-    showToast('Selecione um metodo de pagamento!', 'error');
+  if (carrinho.length === 0) {
+    showToast('Carrinho vazio! ❌', 'error');
     return;
   }
-  
-  showToast('Pedido confirmado! 🎉', 'success');
-  
-  setTimeout(() => {
-    enviarEmailConfirmacao();
-    setTimeout(() => {
-      enviarMensagemWhatsApp();
-    }, 500);
-  }, 1000);
-  
-  setTimeout(() => {
-    carrinho = [];
-    localStorage.removeItem('loja_carrinho');
-    localStorage.removeItem('loja_endereco');
-    atualizarCarrinho();
 
-    document.getElementById('cep').value = '';
-    document.getElementById('endereco').value = '';
-    document.getElementById('numero').value = '';
-    document.getElementById('cidade').value = '';
-    document.getElementById('complemento').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('telefone').value = '';
-    document.getElementById('payment-details').innerHTML = '';
-    document.getElementById('payment-details').style.display = 'none';
-    document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('selected'));
-    metodo_pagamento_selecionado = 'pix';
+  const endereco = localStorage.getItem('loja_endereco');
+  if (!endereco) {
+    showToast('Dados de entrega não encontrados! ❌', 'error');
+    return;
+  }
+  const enderecoData = JSON.parse(endereco);
 
-    document.getElementById('step-address').style.display = 'block';
-    document.getElementById('step-payment').style.display = 'none';
+  const detalhesPedido = carrinho.map(item => `${item.nome} (x${item.qty}) - R$ ${(item.preco * item.qty).toFixed(2)}`).join('\n');
+  const total = carrinho.reduce((a, b) => a + (b.preco * b.qty), 0).toFixed(2);
 
-    voltarHome();
-  }, 2500);
+  const mensagem = `Obrigado por sua compra!\n\nDetalhes do pedido:\n${detalhesPedido}\n\nTotal: R$ ${total}\n\nAgradecemos pela preferência!`;
+
+  enviarEmail(enderecoData.email, 'Detalhes do Pedido', mensagem);
+  enviarMensagemWhatsApp();
+  
+  carrinho = [];
+  atualizarCarrinho();
+  showToast('Compra finalizada com sucesso! ✅', 'success');
 }
 
+function enviarEmail(destinatario, assunto, corpo) {
+  console.log(`Enviando e-mail para ${destinatario}:\nAssunto: ${assunto}\nCorpo:\n${corpo}`);
+}
+
+async function buscarCEP() {
+  const cepInput = document.getElementById('cep').value.replace(/\D/g, '');
+  
+  if (cepInput.length !== 8) {
+    showToast('CEP deve ter 8 dígitos!', 'error');
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://viacep.com.br/ws/${cepInput}/json/`);
+    const data = await response.json();
+
+    if (data.erro) {
+      showToast('CEP não encontrado!', 'error');
+      return;
+    }
+
+    document.getElementById('endereco').value = data.logradouro || '';
+    document.getElementById('cidade').value = data.localidade || '';
+    document.getElementById('estado').value = data.uf || '';
+
+    showToast('Endereço carregado! ✅', 'success');
+  } catch (error) {
+    console.error('Erro ao buscar CEP:', error);
+    showToast('Erro ao buscar CEP!', 'error');
+  }
+}
+
+function abrirDetalhesProduto(id) {
+  const produto = produtos.find(p => p.id === id);
+  if (!produto) return;
+
+  const precoComDesconto = produto.preco - (produto.preco * produto.desconto / 100);
+
+  const avaliacoesHTML = produto.avaliacoes ? produto.avaliacoes.map(avaliacao => `
+    <div class="review-item">
+      <div class="review-header">
+        <div>
+          <strong>${avaliacao.usuario}</strong>
+          <div class="review-stars">${'⭐'.repeat(avaliacao.nota)}</div>
+        </div>
+      </div>
+      <p class="review-text">${avaliacao.texto}</p>
+    </div>
+  `).join('') : '<p>Sem avaliações disponíveis.</p>';
+
+  const detalhesHTML = `
+    <div class="detalhes-overlay" onclick="fecharDetalhesProduto()"></div>
+    <div class="detalhes-modal">
+      <button class="close-detalhes" onclick="fecharDetalhesProduto()">✕</button>
+      
+      <div class="detalhes-container">
+        <div class="detalhes-img-container">
+          ${produto.novidade ? '<div class="badge-novidade-grande">🆕 NOVIDADE</div>' : ''}
+          ${produto.desconto > 0 ? `<div class="badge-desconto-grande">-${produto.desconto}%</div>` : ''}
+          <img src="${produto.img}" class="detalhes-img" alt="${produto.nome}">
+        </div>
+
+        <div class="detalhes-info">
+          <h2>${produto.nome}</h2>
+          <p class="detalhes-descricao">${produto.descricao}</p>
+
+          <div class="rating-detalhes">
+            <span class="stars">⭐ ${produto.avaliacao}</span>
+            <span class="review-count">(${produto.reviews} avaliações)</span>
+          </div>
+
+          <div class="preco-detalhes">
+            <div>
+              ${produto.desconto > 0 ? `<span class="original-price">R$ ${produto.preco.toLocaleString('pt-BR')}</span><br>` : ''}
+              <span class="preco-final">R$ ${precoComDesconto.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+            </div>
+            ${produto.desconto > 0 ? `<span class="desconto-percentual">Economize ${produto.desconto}%</span>` : ''}
+          </div>
+
+          <div class="especificacoes">
+            <h4>Especificações:</h4>
+            <ul>
+              ${produto.especificacoes.map(esp => `<li>${esp}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="opcoes-compra">
+            <button class="btn-comprar" onclick="adicionarAoCarrinho(${produto.id}); setTimeout(() => fecharDetalhesProduto(), 500);">
+              🛒 ADICIONAR AO CARRINHO
+            </button>
+            <button class="btn-comparar" onclick="fecharDetalhesProduto();">VOLTAR</button>
+          </div>
+
+          <div class="garantia-info">
+            <p>Garantia de 12 meses</p>
+            <p>Frete grátis acima de R$ 500</p>
+            <p>Devolução gratuita em 30 dias</p>
+          </div>
+
+          <div class="avaliacoes-section">
+            <h4>Avaliações dos Clientes:</h4>
+            <div class="reviews-container">
+              ${avaliacoesHTML}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', detalhesHTML);
+}
+
+function fecharDetalhesProduto() {
+  const modal = document.querySelector('.detalhes-modal');
+  const overlay = document.querySelector('.detalhes-overlay');
+  
+  if (modal) {
+    modal.style.animation = 'slideDown 0.3s ease forwards';
+    setTimeout(() => modal.remove(), 300);
+  }
+  if (overlay) {
+    overlay.style.animation = 'fadeOut 0.3s ease forwards';
+    setTimeout(() => overlay.remove(), 300);
+  }
+}
+
+function aplicarFiltros({ genero, precoMin, precoMax, plataforma }) {
+  const produtosFiltrados = produtos.filter(p => {
+    const atendeGenero = genero ? p.genero === genero : true;
+    const atendePreco = (precoMin ? p.preco >= precoMin : true) && (precoMax ? p.preco <= precoMax : true);
+    const atendePlataforma = plataforma ? p.plataforma === plataforma : true;
+    return atendeGenero && atendePreco && atendePlataforma;
+  });
+  renderProdutos(produtosFiltrados);
+}
+
+function verColecao() {
+  const colecao = produtos.filter(p => p.genero === 'Console' || p.genero === 'Jogo');
+  renderProdutos(colecao);
+}
+
+// Inicializar a exibição
 renderProdutos();

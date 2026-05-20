@@ -1,0 +1,251 @@
+Você vai MELHORAR um site já existente de loja online de jogos e consoles . NÃO recrie o projeto do zero. NÃO remova funcionalidades existentes que já funcionam. Trabalhe em cima da estrutura atual, corrigindo bugs, adicionando melhorias e expandindo funcionalidades.
+
+OBJETIVO:
+Deixar o site mais profissional, moderno, responsivo, funcional e completo.
+
+REGRAS IMPORTANTES:
+
+* Preserve o design atual sempre que possível.
+* Não quebrar páginas existentes.
+* Não alterar rotas sem necessidade.
+* Não remover produtos já existentes.
+* Corrigir erros antes de adicionar novas funções.
+* Manter compatibilidade com mobile e desktop.
+* Código limpo, organizado e escalável.
+* Revisar erros no console.
+* Garantir que tudo funcione após atualizar a página.
+
+MELHORIAS OBRIGATÓRIAS:
+
+1. CARRINHO
+
+* Corrigir bugs do carrinho.
+* Atualizar quantidade e total automaticamente.
+* Salvar carrinho no localStorage.
+* Persistir após refresh.
+* Melhorar visual e UX do carrinho.
+* Adicionar animação suave ao adicionar produtos.
+
+2. CHECKOUT
+   Adicionar checkout completo com:
+
+* Nome
+* Email
+* Telefone
+* Endereço
+* CEP
+* Cidade
+* Estado
+
+Pagamento:
+
+* Cartão de crédito
+* Cartão de débito
+
+Campos:
+
+* Nome no cartão
+* Número do cartão
+* CVV
+* Data de validade
+
+Melhorias:
+
+* Máscara automática nos campos.
+* Validação em tempo real.
+* Feedback visual de erro/sucesso.
+* Simulação de processamento de pagamento.
+
+3. EMAIL AUTOMÁTICO
+   Após finalizar compra:
+
+* Enviar email automático para o comprador.
+
+O email deve conter:
+
+* Número do pedido
+* Produtos comprados
+* Quantidade
+* Valor total
+* Endereço
+* Tipo de pagamento
+* Data da compra
+
+Usar:
+
+* EmailJS
+  OU
+* Nodemailer
+  OU integração equivalente.
+
+4. ESTOQUE
+   Adicionar sistema de estoque:
+
+* Cada produto deve possuir quantidade disponível.
+* Diminuir estoque automaticamente ao comprar.
+* Se estoque acabar:
+
+  * Mostrar "Esgotado"
+  * Desativar botão de compra
+* Persistir estoque usando localStorage ou backend mock.
+
+5. ORGANIZAÇÃO DOS PRODUTOS
+   Separar produtos por categorias:
+
+* Consoles
+* Jogos
+* Portáteis
+* Acessórios
+* Colecionáveis
+* Do Futuro (produtos após 2005)
+
+6. MAIS VENDIDOS
+   Criar seção:
+   "Mais Vendidos"
+
+Critério:
+
+* Produtos com maior número de compras.
+* Atualização dinâmica após pedidos.
+
+7. NOVOS PRODUTOS
+   Adicionar PELO MENOS 9 novos produtos retrô.
+
+Cada produto deve conter:
+
+* Nome
+* Imagem
+* Descrição
+* Preço
+* Plataforma
+* Gênero
+* Estoque
+* Classificação indicativa
+
+Se o produto for acima de 2005:
+
+* Adicionar selo:
+  "DO FUTURO"
+
+8. PLATAFORMA
+   Mostrar claramente em cada jogo:
+
+* Plataforma compatível
+  Exemplos:
+* PS1
+* SNES
+* Mega Drive
+* Dreamcast
+* PSP
+* Arcade
+
+9. FILTROS AVANÇADOS
+   Adicionar filtros:
+
+* gênero
+* plataforma
+* preço
+* classificação indicativa
+* disponibilidade
+* mais vendidos
+* ordem alfabética
+* menor preço
+* maior preço
+* retrô / do futuro
+
+10. PESQUISA
+    Adicionar barra de pesquisa em tempo real:
+
+* Buscar por:
+
+  * nome
+  * gênero
+  * plataforma
+
+11. BOTÃO "VER COLEÇÃO"
+    Corrigir funcionamento do botão:
+
+* Scroll suave até produtos.
+* Compatível com mobile.
+
+12. RESPONSIVIDADE
+    Melhorar versão mobile:
+
+* Corrigir layouts quebrados.
+* Evitar overflow horizontal.
+* Melhorar grids.
+* Ajustar menus.
+* Ajustar botões e textos.
+
+13. VISUAL
+    Melhorar interface:
+
+* Tema retrô neon.
+* Hover effects.
+* Cards modernos.
+* Sombras suaves.
+* Transições.
+* Loading states.
+* Toast notifications.
+
+14. ACESSIBILIDADE
+    Adicionar:
+
+* aria-label
+* alt nas imagens
+* foco visível
+* navegação por teclado
+
+15. PERFORMANCE
+
+* Lazy loading em imagens.
+* Melhorar carregamento.
+* Evitar renders desnecessários.
+* Otimizar assets.
+
+16. SEO
+    Adicionar:
+
+* meta tags
+* title
+* description
+* Open Graph
+* favicon
+
+17. RODAPÉ
+    Adicionar:
+
+* Política de Reembolso
+* Termos de Uso
+* Política de Privacidade
+
+Os textos devem ser claros e organizados.
+
+18. SEGURANÇA
+
+* Validar formulários.
+* Sanitizar inputs.
+* Evitar erros no console.
+* Não expor dados sensíveis.
+
+19. FINALIZAÇÃO
+    Antes de concluir:
+
+* Testar carrinho.
+* Testar checkout.
+* Testar estoque.
+* Testar filtros.
+* Testar email.
+* Testar responsividade.
+* Corrigir todos erros.
+
+20. RESUMO DO PEDIDO
+     adicionar:
+*um novo botão para acessar pedidos já feitos
+*lá você vai colocar o resumo do pedido e a rota que ele esta tomando e qual parte dela ele esta. resumo completo.
+
+
+
+
+
+Entregar tudo funcional e integrado ao projeto já existente.

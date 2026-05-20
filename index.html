@@ -9,7 +9,7 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>LOJA DO JÃO | Ultimate Gaming Store</title>
+  <title>LOJA DO JÃO | GAMES DE NOVA GERAÇÃO</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700;800&display=swap"
@@ -21,7 +21,9 @@
     emailjs.init('YOUR_PUBLIC_KEY');
   </script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="detalhes.css"/>
 </head>
 
 <body>
@@ -77,7 +79,7 @@
           O FUTURO DO<br>
 
           <span style="color:var(--accent)">
-            RETRO GAMING
+            GAMING É AGORA
           </span>
         </h1>
 
@@ -127,6 +129,7 @@
             class="pay-input"
             maxlength="9"
             oninput="formatarCEP(this)"
+            onblur="buscarCEP()"
           >
 
           <input
@@ -141,14 +144,27 @@
             id="numero"
             placeholder="Número"
             class="pay-input"
+            inputmode="numeric"
+            onkeydown="if(!/[0-9]/.test(event.key) && ['Backspace','Delete','Tab','Escape','Enter'].indexOf(event.key) === -1) event.preventDefault()"
           >
 
-          <input
-            type="text"
-            id="cidade"
-            placeholder="Cidade"
-            class="pay-input"
-          >
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <input
+              type="text"
+              id="cidade"
+              placeholder="Cidade"
+              class="pay-input"
+            >
+
+            <input
+              type="text"
+              id="estado"
+              placeholder="Estado (ex: SP)"
+              class="pay-input"
+              maxlength="2"
+              style="text-transform: uppercase;"
+            >
+          </div>
 
           <input
             type="text"
@@ -323,6 +339,17 @@
     // 4. Copie sua PUBLIC_KEY e substitua 'YOUR_PUBLIC_KEY' no inicio do app.js
     // 5. Copie seu Service ID e Template ID e atualize as constantes no app.js
   </script>
+
+  <footer>
+    <div class="footer-section">
+      <h4>Política de Reembolso</h4>
+      <p>Você pode solicitar reembolso em até 30 dias após a compra, desde que o produto esteja em perfeito estado.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Termos de Uso</h4>
+      <p>Ao utilizar nosso site, você concorda com nossos termos e condições. Leia mais <a href="#">aqui</a>.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
