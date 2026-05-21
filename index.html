@@ -18,7 +18,8 @@
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
   <script type="text/javascript">
-    emailjs.init('YOUR_PUBLIC_KEY');
+    // Substitua a string abaixo pela sua PUBLIC_KEY do EmailJS (veja INSTRUCOES_EMAIL.md)
+    emailjs.init('COLE_SUA_PUBLIC_KEY_AQUI');
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -37,10 +38,16 @@
   <nav class="navbar">
 
     <div class="nav-logo" onclick="voltarHome()">
-      LOJA DO JÃO
+      <span class="logo-mark">J</span>
+      <span class="logo-text">Loja do Jão</span>
     </div>
 
-    <button class="cart-btn" onclick="toggleCart(true)">
+    <div class="nav-actions">
+      <button class="orders-btn" onclick="abrirPedidos()">
+        <span class="orders-icon">📦</span>
+        MEUS PEDIDOS
+      </button>
+      <button class="cart-btn" onclick="toggleCart(true)">
 
       <svg
         width="28"
@@ -83,15 +90,61 @@
           </span>
         </h1>
 
-        <a href="#produtos" class="hero-cta">
-          VER COLEÇÃO
-        </a>
-
-      </div>
+</div>
 
     </section>
 
+    <section class="featured-section" id="featuredSection">
+      <div class="featured-header">
+        <div>
+          <h2>Mais Vendidos</h2>
+          <p>Os melhores retro games à vista, com entrega rápida.</p>
+        </div>
+        <a href="#produtos" class="secondary-btn">Ver todos</a>
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="shop-controls">
+      <div class="controls-wrapper compact-controls">
+        <div class="search-box compact-search">
+          <span class="search-icon">🔍</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Buscar retro games"
+            class="search-input"
+            oninput="atualizarFiltrosDebounced()"
+          />
+        </div>
+
+        <div class="category-tabs">
+          <button class="filter-chip active" data-category="Todos" onclick="filtrarCategoria('Todos')">Todos</button>
+          <button class="filter-chip" data-category="Jogos" onclick="filtrarCategoria('Jogos')">Jogos</button>
+          <button class="filter-chip" data-category="Video Games" onclick="filtrarCategoria('Video Games')">Video Games</button>
+          <button class="filter-chip" data-category="Portáteis" onclick="filtrarCategoria('Portáteis')">Portáteis</button>
+          <button class="filter-chip" data-category="Acessórios" onclick="filtrarCategoria('Acessórios')">Acessórios</button>
+        </div>
+
+        <div class="sort-panel">
+          <select id="sortSelect" class="sort-select" onchange="atualizarFiltros()">
+            <option value="">Ordenar</option>
+            <option value="mais-vendidos">Mais vendidos</option>
+            <option value="melhor-avaliacao">Melhor avaliação</option>
+            <option value="preco-asc">Menor preço</option>
+            <option value="preco-desc">Maior preço</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
     <section class="produtos" id="produtos">
+      <div class="products-header">
+        <div>
+          <h2 id="categoryTitle">Todos os Itens</h2>
+          <p class="product-count"><span id="itemsCount">0</span> produtos encontrados</p>
+        </div>
+      </div>
       <div class="grid" id="grid"></div>
     </section>
 
@@ -121,6 +174,13 @@
           <h2 class="checkout-title">
             ENTREGA
           </h2>
+
+          <input
+            type="text"
+            id="nome"
+            placeholder="Nome Completo"
+            class="pay-input"
+          >
 
           <input
             type="text"
@@ -263,6 +323,19 @@
 
   </main>
 
+  <main id="ordersPage" style="display:none;">
+    <div class="orders-container">
+      <div class="orders-header">
+        <div>
+          <h2>Meus Pedidos</h2>
+          <p class="orders-subtitle">Acompanhe o status, o resumo do pedido e a rota de envio de cada compra.</p>
+        </div>
+        <button class="back-btn" onclick="voltarHome()">VOLTAR</button>
+      </div>
+      <div id="ordersList" class="orders-list"></div>
+    </div>
+  </main>
+
   <!-- CARRINHO -->
 
   <div
@@ -324,30 +397,44 @@
   <script src="app.js"></script>
 
   <script>
-    // INSTRUCOES PARA CONFIGURAR ENVIO DE EMAIL:
+    // ================================================================
+    // INSTRUÇÕES PARA CONFIGURAR ENVIO DE EMAIL COM EMAILJS:
+    // ================================================================
     // 1. Acesse https://www.emailjs.com e crie uma conta gratuita
-    // 2. Na aba "Email Services", configure seu Gmail ou outro email
-    // 3. Na aba "Email Templates", crie um template com ID: template_pedido
-    //    Use as seguintes variaveis no template:
-    //    {{pedido_numero}} - Numero do pedido
+    // 2. Na aba \"Email Services\", configure seu Gmail ou outro email
+    // 3. Na aba \"Email Templates\", crie um template com ID: template_pedido
+    //    Use as seguintes variáveis no template:
+    //    {{pedido_numero}} - Número do pedido
     //    {{to_name}} - Nome do cliente
-    //    {{produtos}} - Tabela HTML com produtos
-    //    {{total}} - Total da compra
-    //    {{endereco}}, {{numero}}, {{complemento}}, {{cidade}}, {{cep}} - Endereco
-    //    {{telefone}} - Telefone
-    //    {{metodo_pagamento}} - Metodo de pagamento
-    // 4. Copie sua PUBLIC_KEY e substitua 'YOUR_PUBLIC_KEY' no inicio do app.js
-    // 5. Copie seu Service ID e Template ID e atualize as constantes no app.js
+    //    {{produtos}} - Lista de produtos (ex: Produto 1 (1x) - R$ 100,00)
+    //    {{total}} - Total da compra formatado (ex: R$ 1.234,56)
+    //    {{endereco}} - Endereço de entrega
+    //    {{telefone}} - Telefone do cliente
+    //    {{email}} - Email do cliente
+    //    {{metodo_pagamento}} - Método de pagamento (PIX, Cartão, PayPal)
+    //    {{data_pedido}} - Data do pedido
+    // 4. Copie sua PUBLIC_KEY em index.html linha 21: emailjs.init('COPIE_AQUI')
+    // 5. Copie seu SERVICE_ID e TEMPLATE_ID em app.js linha 730 (função enviarConfirmacaoPedido)
+    //    Altere: emailjs.send('SERVICE_ID_AQUI', 'template_pedido', ...)
+    // ================================================================
   </script>
 
   <footer>
-    <div class="footer-section">
-      <h4>Política de Reembolso</h4>
-      <p>Você pode solicitar reembolso em até 30 dias após a compra, desde que o produto esteja em perfeito estado.</p>
-    </div>
-    <div class="footer-section">
-      <h4>Termos de Uso</h4>
-      <p>Ao utilizar nosso site, você concorda com nossos termos e condições. Leia mais <a href="#">aqui</a>.</p>
+    <div class="footer-cards">
+      <div class="footer-card">
+        <span class="footer-badge">↩️</span>
+        <div>
+          <h4>Reembolso garantido</h4>
+          <p>Solicite reembolso em até 30 dias, com o produto em perfeito estado.</p>
+        </div>
+      </div>
+      <div class="footer-card">
+        <span class="footer-badge">📜</span>
+        <div>
+          <h4>Termos de Uso</h4>
+          <p>Ao usar o site, você aceita nossas políticas. <a href="#">Saiba mais</a>.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
