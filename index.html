@@ -9,7 +9,21 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>LOJA DO JÃO | GAMES DE NOVA GERAÇÃO</title>
+  <title>LOJA DO JÃO | Games e Consoles de Época</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Loja do Jão: Compre games, consoles e colecionáveis. Consoles PS1, SNES, Mega Drive, PSP, Arcade. Entrega rápida e segura com PIX, Cartão ou PayPal." />
+  <meta name="keywords" content="games, consoles , PS1, SNES, Mega Drive, jogos antigos, colecionáveis, portáteis" />
+  <meta name="author" content="Loja do Jão" />
+
+  <!-- Open Graph (redes sociais) -->
+  <meta property="og:title" content="LOJA DO JÃO | Games e Consoles" />
+  <meta property="og:description" content="A maior loja de games  do Brasil. Consoles, jogos e colecionáveis com garantia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lojajoao.com.br" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23a855f7' width='100' height='100'/%3E%3Ctext x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'%3EJ%3C/text%3E%3C/svg%3E" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700;800&display=swap"
@@ -18,8 +32,11 @@
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
   <script type="text/javascript">
-    // Substitua a string abaixo pela sua PUBLIC_KEY do EmailJS (veja INSTRUCOES_EMAIL.md)
-    emailjs.init('COLE_SUA_PUBLIC_KEY_AQUI');
+    (function() {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init('fwjbPrZatL54ojjO9');
+      }
+    })();
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -37,17 +54,20 @@
 
   <nav class="navbar">
 
-    <div class="nav-logo" onclick="voltarHome()">
+    <div class="nav-logo" onclick="voltarHome()" role="button" tabindex="0" aria-label="Ir para página inicial">
       <span class="logo-mark">J</span>
       <span class="logo-text">Loja do Jão</span>
     </div>
 
     <div class="nav-actions">
-      <button class="orders-btn" onclick="abrirPedidos()">
-        <span class="orders-icon">📦</span>
+      <button class="theme-toggle-btn" onclick="toggleTema()" id="themeToggleBtn" aria-label="Alternar modo claro/escuro" title="Modo claro/escuro">
+        <span id="themeIcon">🌙</span>
+      </button>
+      <button class="orders-btn" onclick="abrirPedidos()" aria-label="Acessar meus pedidos">
+        <span class="orders-icon" aria-hidden="true">📦</span>
         MEUS PEDIDOS
       </button>
-      <button class="cart-btn" onclick="toggleCart(true)">
+      <button class="cart-btn" onclick="toggleCart(true)" aria-label="Abrir carrinho de compras">
 
       <svg
         width="28"
@@ -94,11 +114,17 @@
 
     </section>
 
+    <!-- BANNERS DINÂMICOS DE LANÇAMENTOS -->
+    <section class="banners-section" id="bannersSection">
+      <div class="banners-track" id="bannersTrack"></div>
+      <div class="banners-dots" id="bannersDots"></div>
+    </section>
+
     <section class="featured-section" id="featuredSection">
       <div class="featured-header">
         <div>
           <h2>Mais Vendidos</h2>
-          <p>Os melhores retro games à vista, com entrega rápida.</p>
+          <p>Os melhores games à vista, com entrega rápida.</p>
         </div>
         <a href="#produtos" class="secondary-btn">Ver todos</a>
       </div>
@@ -363,14 +389,26 @@
 
     <div class="cart-footer">
 
+      <!-- CALCULADOR DE FRETE -->
+      <div class="frete-calc" id="freteCalc">
+        <div class="frete-calc-label">🚚 Calcular frete</div>
+        <div class="frete-calc-row">
+          <input
+            type="text"
+            id="cartCepInput"
+            class="frete-cep-input"
+            placeholder="Digite seu CEP"
+            maxlength="9"
+            oninput="formatarCEPCarrinho(this)"
+          />
+          <button class="frete-calc-btn" onclick="calcularFreteCarrinho()">OK</button>
+        </div>
+        <div id="freteResultado" class="frete-resultado" style="display:none;"></div>
+      </div>
+
       <div class="cart-total">
-
         <span>TOTAL</span>
-
-        <span id="cartTotal">
-          R$ 0,00
-        </span>
-
+        <span id="cartTotal">R$ 0,00</span>
       </div>
 
       <button
@@ -432,7 +470,7 @@
         <span class="footer-badge">📜</span>
         <div>
           <h4>Termos de Uso</h4>
-          <p>Ao usar o site, você aceita nossas políticas. <a href="#">Saiba mais</a>.</p>
+          <p>Ao usar o site, você aceita nossas políticas. <a href="termos.html">Saiba mais</a>.</p>
         </div>
       </div>
     </div>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Uso & Políticas — Loja do Jão</title>
+  <meta name="description" content="Termos de uso, política de privacidade, trocas, devoluções e frete da Loja do Jão." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #030305;
+      --surface: #0a0a0f;
+      --accent: #a855f7;
+      --text: #f8fafc;
+      --font-display: 'Bebas Neue', sans-serif;
+      --muted: rgba(248,250,252,0.65);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(3,3,5,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(168,85,247,0.15);
+    }
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #a855f7, #7c3aed);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2px solid rgba(168,85,247,0.4);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .back-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #111;
+    }
+
+    /* HERO DO TERMOS */
+    .terms-hero {
+      margin-top: 72px;
+      padding: 60px 20px 40px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(168,85,247,0.08) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(168,85,247,0.12);
+    }
+    .terms-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .terms-hero h1 span { color: var(--accent); }
+    .terms-hero p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 15px;
+    }
+    .terms-hero .update-badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 16px;
+      background: rgba(168,85,247,0.12);
+      border: 1px solid rgba(168,85,247,0.3);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    /* NAVEGAÇÃO LATERAL */
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+    }
+    @media (max-width: 768px) {
+      .terms-layout { grid-template-columns: 1fr; }
+      .terms-nav { display: none; }
+    }
+
+    .terms-nav {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+      background: rgba(10,10,15,0.9);
+      border: 1px solid rgba(168,85,247,0.15);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .terms-nav h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 900;
+    }
+    .terms-nav a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s;
+      margin-bottom: 4px;
+    }
+    .terms-nav a:hover {
+      background: rgba(168,85,247,0.12);
+      color: var(--text);
+    }
+
+    /* CONTEÚDO */
+    .terms-content { max-width: 720px; }
+
+    .terms-section {
+      margin-bottom: 52px;
+      scroll-margin-top: 100px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .terms-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .terms-section h2 .icon {
+      font-size: 28px;
+    }
+    .terms-section p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+    .terms-section strong { color: var(--text); }
+
+    /* CARDS DE DESTAQUE */
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(168,85,247,0.04));
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+    .highlight-card.green {
+      background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.04));
+      border-color: rgba(16,185,129,0.25);
+    }
+    .highlight-card.yellow {
+      background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.04));
+      border-color: rgba(245,158,11,0.25);
+    }
+    .highlight-card p { margin: 0; color: var(--text); font-size: 14px; }
+    .highlight-card .card-title {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* TABELA DE FRETE */
+    .frete-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .frete-table th {
+      text-align: left;
+      padding: 12px 16px;
+      background: rgba(168,85,247,0.15);
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .frete-table th:first-child { border-radius: 12px 0 0 0; }
+    .frete-table th:last-child  { border-radius: 0 12px 0 0; }
+    .frete-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(168,85,247,0.08);
+      color: var(--muted);
+    }
+    .frete-table tr:hover td { background: rgba(168,85,247,0.04); color: var(--text); }
+    .frete-table .free-tag {
+      color: #10b981;
+      font-weight: 800;
+    }
+
+    /* LISTA */
+    .terms-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+    .terms-list li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      border-bottom: 1px solid rgba(168,85,247,0.07);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .terms-list li:last-child { border-bottom: none; }
+    .terms-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent);
+      margin: 48px 0;
+    }
+
+    /* CONTATO */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(124,58,237,0.08));
+      border: 2px solid rgba(168,85,247,0.3);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .contact-box p { color: var(--muted); margin-bottom: 20px; }
+    .contact-box a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+    .contact-box a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(168,85,247,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(168,85,247,0.1);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">J</span>
+      <span>Loja do Jão</span>
+    </a>
+    <a href="index.html" class="back-link">← Voltar à Loja</a>
+  </nav>
+
+  <div class="terms-hero">
+    <h1>Termos de Uso &<br><span>Políticas da Loja</span></h1>
+    <p>Tudo o que você precisa saber sobre como comprar com segurança na Loja do Jão.</p>
+    <span class="update-badge">Última atualização: Janeiro de 2025</span>
+  </div>
+
+  <div class="terms-layout">
+
+    <!-- Navegação lateral -->
+    <nav class="terms-nav">
+      <h4>Seções</h4>
+      <a href="#quem-somos">👋 Quem somos</a>
+      <a href="#compra">🛒 Como comprar</a>
+      <a href="#frete">🚚 Frete e entrega</a>
+      <a href="#pagamento">💳 Formas de pagamento</a>
+      <a href="#troca">↩️ Trocas e devoluções</a>
+      <a href="#garantia">🛡️ Garantia</a>
+      <a href="#privacidade">🔒 Privacidade</a>
+      <a href="#responsabilidades">⚖️ Responsabilidades</a>
+      <a href="#contato">📬 Contato</a>
+    </nav>
+
+    <!-- Conteúdo -->
+    <div class="terms-content">
+
+      <!-- QUEM SOMOS -->
+      <section class="terms-section" id="quem-somos">
+        <span class="section-tag">Sobre nós</span>
+        <h2><span class="icon">👋</span> Quem somos</h2>
+        <p>A <strong>Loja do Jão</strong> é uma loja especializada em games retrô, consoles clássicos e produtos colecionáveis, localizada no estado do <strong>Piauí</strong>, no Nordeste do Brasil. Enviamos para todo o território nacional.</p>
+        <p>Nosso compromisso é oferecer produtos originais e bem conservados, com transparência no processo de compra, entrega e atendimento ao cliente.</p>
+        <div class="highlight-card green">
+          <div class="card-title">🎮 Nossa especialidade</div>
+          <p>Consoles e jogos das décadas de 1980 a 2010 — originais, testados e em bom estado de conservação, salvo indicação em contrário na descrição do produto.</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- COMO COMPRAR -->
+      <section class="terms-section" id="compra">
+        <span class="section-tag">Processo de compra</span>
+        <h2><span class="icon">🛒</span> Como comprar</h2>
+        <p>A compra no site é simples e segura. Veja os passos:</p>
+        <ul class="terms-list">
+          <li>Escolha os produtos e adicione ao carrinho</li>
+          <li>Finalize o pedido informando seu endereço completo e CEP</li>
+          <li>Escolha a forma de pagamento (PIX, Cartão ou PayPal)</li>
+          <li>Após confirmação do pagamento, o pedido é separado e enviado</li>
+          <li>Você recebe um número de pedido para acompanhamento</li>
+        </ul>
+        <p>O pedido só é confirmado e separado após a <strong>confirmação do pagamento</strong>. Para PIX, a confirmação é imediata. Para cartão, pode levar até 24h.</p>
+        <div class="highlight-card yellow">
+          <div class="card-title">⚠️ Estoque limitado</div>
+          <p>Produtos retrô têm estoque único ou muito limitado. O estoque exibido é em tempo real — adicione logo ao carrinho para garantir.</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- FRETE E ENTREGA -->
+      <section class="terms-section" id="frete">
+        <span class="section-tag">Logística</span>
+        <h2><span class="icon">🚚</span> Frete e entrega</h2>
+        <p>Todos os produtos são enviados a partir do <strong>Piauí (PI)</strong>, via Correios (PAC ou SEDEX conforme disponibilidade). O valor do frete é calculado automaticamente pelo seu CEP no momento do checkout.</p>
+
+        <div class="highlight-card green">
+          <div class="card-title">🎉 Frete Grátis</div>
+          <p>Compras acima de <strong>R$ 500,00</strong> têm frete grátis para todo o Brasil, independentemente do estado de destino.</p>
+        </div>
+
+        <p style="margin-top:20px;"><strong>Tabela de frete por região:</strong></p>
+        <table class="frete-table">
+          <thead>
+            <tr>
+              <th>Região / Estado</th>
+              <th>Valor do Frete</th>
+              <th>Prazo (dias úteis)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Piauí (PI)</strong></td><td class="free-tag">GRÁTIS</td><td>1 dia útil</td></tr>
+            <tr><td>Maranhão e Ceará</td><td>R$ 18,90</td><td>2 dias úteis</td></tr>
+            <tr><td>Pernambuco, Bahia, Paraíba, RN, AL, SE</td><td>R$ 24,90</td><td>3–4 dias úteis</td></tr>
+            <tr><td>Tocantins</td><td>R$ 22,90</td><td>3 dias úteis</td></tr>
+            <tr><td>Pará</td><td>R$ 34,90</td><td>5 dias úteis</td></tr>
+            <tr><td>Goiás, Distrito Federal</td><td>R$ 29,90</td><td>4 dias úteis</td></tr>
+            <tr><td>Minas Gerais, MT, MS</td><td>R$ 34,90</td><td>5 dias úteis</td></tr>
+            <tr><td>São Paulo, Rio de Janeiro, Espírito Santo</td><td>R$ 39,90</td><td>6 dias úteis</td></tr>
+            <tr><td>Paraná, Santa Catarina</td><td>R$ 44,90</td><td>7 dias úteis</td></tr>
+            <tr><td>Rio Grande do Sul</td><td>R$ 49,90</td><td>8 dias úteis</td></tr>
+            <tr><td>Amazonas, Rondônia</td><td>R$ 44,90</td><td>7 dias úteis</td></tr>
+            <tr><td>Roraima, Amapá, Acre</td><td>R$ 49,90</td><td>8 dias úteis</td></tr>
+            <tr><td>Demais regiões</td><td>R$ 39,90</td><td>6 dias úteis</td></tr>
+          </tbody>
+        </table>
+
+        <p>Os prazos são contados a partir da <strong>confirmação do pagamento</strong>, não da data do pedido. Atrasos causados pelos Correios não são responsabilidade da Loja do Jão, mas fazemos o possível para acompanhar cada envio.</p>
+        <ul class="terms-list">
+          <li>Produtos são embalados com proteção adequada para garantir integridade na entrega</li>
+          <li>Após o envio, você recebe o código de rastreamento por e-mail ou WhatsApp</li>
+          <li>Em caso de extravio, acionamos o seguro dos Correios imediatamente</li>
+          <li>Endereços incorretos são responsabilidade do comprador — confira sempre antes de finalizar</li>
+        </ul>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- PAGAMENTO -->
+      <section class="terms-section" id="pagamento">
+        <span class="section-tag">Financeiro</span>
+        <h2><span class="icon">💳</span> Formas de pagamento</h2>
+
+        <div class="highlight-card">
+          <div class="card-title">💳 PIX</div>
+          <p>Confirmação imediata. O pedido é processado na hora, sem espera. Recomendado para receber mais rápido.</p>
+        </div>
+        <div class="highlight-card" style="margin-top:12px;">
+          <div class="card-title">💳 Cartão de Crédito</div>
+          <p>Parcelamento em até <strong>12 vezes</strong>. As primeiras parcelas são sem juros; a partir da 2ª parcela, juros de mercado se aplicam. Aprovação sujeita à análise do banco.</p>
+        </div>
+        <div class="highlight-card" style="margin-top:12px;">
+          <div class="card-title">🌐 PayPal</div>
+          <p>Compra com proteção adicional do PayPal. Aceita cartões internacionais e saldo PayPal.</p>
+        </div>
+
+        <p style="margin-top:20px;">A Loja do Jão não armazena dados de cartão de crédito. Todas as transações passam pelos gateways de pagamento com criptografia SSL.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- TROCAS E DEVOLUÇÕES -->
+      <section class="terms-section" id="troca">
+        <span class="section-tag">Pós-venda</span>
+        <h2><span class="icon">↩️</span> Trocas e devoluções</h2>
+        <p>Seguimos o <strong>Código de Defesa do Consumidor (Lei 8.078/90)</strong>. Você tem direito a:</p>
+        <ul class="terms-list">
+          <li><strong>7 dias</strong> para arrependimento da compra, a partir do recebimento (compras online) — devolução com frete pago pelo vendedor</li>
+          <li><strong>30 dias</strong> para solicitar troca por defeito em produtos não-duráveis</li>
+          <li><strong>90 dias</strong> para solicitar troca por defeito em produtos duráveis (consoles, acessórios eletrônicos)</li>
+        </ul>
+
+        <div class="highlight-card yellow">
+          <div class="card-title">⚠️ Condições para devolução</div>
+          <p>O produto deve ser devolvido na mesma condição em que foi recebido, com embalagem original (quando houver), manual e acessórios inclusos. Produtos com sinais de mau uso não serão aceitos para troca por defeito.</p>
+        </div>
+
+        <p style="margin-top:16px;">Para solicitar troca ou devolução, entre em contato conosco pelo WhatsApp ou e-mail informando o número do pedido e o motivo. Responderemos em até <strong>2 dias úteis</strong>.</p>
+        <p>Reembolsos são processados em até <strong>5 dias úteis</strong> após o recebimento e análise do produto devolvido, via mesmo método de pagamento utilizado.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- GARANTIA -->
+      <section class="terms-section" id="garantia">
+        <span class="section-tag">Qualidade</span>
+        <h2><span class="icon">🛡️</span> Garantia</h2>
+        <p>Todos os produtos passam por testes básicos de funcionamento antes do envio.</p>
+        <ul class="terms-list">
+          <li>Consoles e acessórios eletrônicos: <strong>90 dias</strong> de garantia contra defeitos de fabricação</li>
+          <li>Jogos em cartucho ou CD: garantia de <strong>30 dias</strong> contra defeito de leitura</li>
+          <li>Produtos colecionáveis: garantia de <strong>30 dias</strong> contra defeito de fabricação</li>
+        </ul>
+        <div class="highlight-card">
+          <div class="card-title">ℹ️ Sobre produtos usados</div>
+          <p>Por serem itens retrô e de época, podem apresentar marcas naturais de uso e desgaste estético — isso é indicado na descrição e não configura defeito. A garantia cobre apenas o <strong>funcionamento</strong> do produto.</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- PRIVACIDADE -->
+      <section class="terms-section" id="privacidade">
+        <span class="section-tag">Seus dados</span>
+        <h2><span class="icon">🔒</span> Política de privacidade</h2>
+        <p>Respeitamos sua privacidade. Veja o que coletamos e como usamos:</p>
+        <ul class="terms-list">
+          <li><strong>Nome, e-mail e telefone:</strong> usados exclusivamente para confirmar e comunicar sobre o pedido</li>
+          <li><strong>Endereço:</strong> usado para calcular frete e fazer a entrega — não é compartilhado com terceiros além da transportadora</li>
+          <li><strong>Dados de pagamento:</strong> processados pelos gateways (não ficam em nossos servidores)</li>
+          <li><strong>Histórico de compras:</strong> salvo no seu navegador (localStorage) — não é enviado para nossos servidores</li>
+        </ul>
+        <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins comerciais. Seus dados são usados apenas para processar e entregar seu pedido.</p>
+        <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei 13.709/2018)</strong>, você pode solicitar a exclusão dos seus dados pessoais a qualquer momento pelo nosso e-mail ou WhatsApp.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- RESPONSABILIDADES -->
+      <section class="terms-section" id="responsabilidades">
+        <span class="section-tag">Legal</span>
+        <h2><span class="icon">⚖️</span> Responsabilidades</h2>
+        <ul class="terms-list">
+          <li>A Loja do Jão é responsável pela qualidade dos produtos descritos e pelo envio correto dos pedidos</li>
+          <li>Não nos responsabilizamos por atrasos causados pelos Correios ou por eventos de força maior</li>
+          <li>Endereços incorretos fornecidos pelo comprador são responsabilidade do comprador</li>
+          <li>Imagens dos produtos são meramente ilustrativas — pequenas variações podem ocorrer em itens retrô</li>
+          <li>Preços podem ser alterados sem aviso prévio, mas o preço cobrado é sempre o exibido no momento da finalização do pedido</li>
+          <li>Promoções e descontos não são cumulativos, salvo indicação expressa</li>
+        </ul>
+        <p>Ao finalizar uma compra, o cliente declara ter lido e concordado com estes termos.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- CONTATO -->
+      <section class="terms-section" id="contato">
+        <div class="contact-box">
+          <h3>📬 Fale com a gente</h3>
+          <p>Dúvidas, trocas, reclamações ou só um oi — estamos aqui para ajudar. Tempo de resposta médio: até 24h em dias úteis.</p>
+          <a href="https://wa.me/5589981287978" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
+        </div>
+      </section>
+
+    </div><!-- /terms-content -->
+  </div><!-- /terms-layout -->
+
+  <footer>
+    <p>© <script>document.write(new Date().getFullYear())</script> Loja do Jão — Todos os direitos reservados. Piauí, Brasil.
+    &nbsp;|&nbsp; <a href="index.html">Voltar à loja</a></p>
+  </footer>
+
+</body>
+</html>

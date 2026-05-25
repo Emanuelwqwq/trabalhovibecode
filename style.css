@@ -1471,8 +1471,106 @@ footer {
   animation: slideIn 0.5s ease;
 }
 
-.toast.error {
-  background: #ef4444;
+.toast.info {
+  background: #3b82f6;
+}
+
+/* CALCULADOR DE FRETE NO CARRINHO */
+.frete-calc {
+  background: rgba(168,85,247,0.07);
+  border: 1px solid rgba(168,85,247,0.2);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.frete-calc-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(248,250,252,0.8);
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+.frete-calc-row {
+  display: flex;
+  gap: 8px;
+}
+
+.frete-cep-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 10px;
+  color: #f8fafc;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.frete-cep-input:focus {
+  border-color: var(--accent);
+  background: rgba(168,85,247,0.08);
+}
+
+.frete-cep-input::placeholder { color: rgba(248,250,252,0.35); }
+
+.frete-calc-btn {
+  padding: 10px 18px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.frete-calc-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.frete-calc-btn:active { transform: translateY(0); }
+
+.frete-resultado {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.frete-resultado.sucesso {
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #d1fae5;
+}
+
+.frete-resultado.gratis {
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.4);
+  color: #6ee7b7;
+}
+
+.frete-resultado.erro {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fecaca;
+}
+
+.frete-resultado strong { color: #fff; }
+
+.featured-card {
+  cursor: default;
+}
+
+.featured-card[onclick] {
+  cursor: pointer;
 }
 
 @keyframes slideIn {
@@ -1538,4 +1636,348 @@ footer {
     width: 100%;
     max-width: 150px;
   }
+}
+/* =============================================
+   TEMA CLARO
+   ============================================= */
+body.tema-claro {
+  --bg: #f0eeea;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  background: var(--bg);
+  color: var(--text);
+}
+body.tema-claro .navbar {
+  background: rgba(240,238,234,0.97);
+  border-bottom-color: rgba(168,85,247,0.2);
+}
+body.tema-claro .nav-logo, body.tema-claro .logo-text { color: #1a1a2e; }
+body.tema-claro .hero { background: linear-gradient(135deg, #ece9f5 0%, #f5f0ff 100%); }
+body.tema-claro .hero-title { color: #1a1a2e; }
+body.tema-claro .card {
+  background: #ffffff;
+  border-color: rgba(168,85,247,0.15);
+  color: #1a1a2e;
+}
+body.tema-claro .card:hover { border-color: var(--accent); }
+body.tema-claro .card h3, body.tema-claro .card-categoria { color: #1a1a2e; }
+body.tema-claro .card-img-container { background: linear-gradient(135deg, #f3eeff, #ede8ff); }
+body.tema-claro .featured-section { background: #f7f5ff; }
+body.tema-claro .featured-card { background: #fff; border-color: rgba(168,85,247,0.2); color: #1a1a2e; }
+body.tema-claro .featured-card h3 { color: #1a1a2e; }
+body.tema-claro .shop-controls { background: #ede9f8; }
+body.tema-claro .search-input { background: #fff; color: #1a1a2e; border-color: rgba(168,85,247,0.3); }
+body.tema-claro .search-input::placeholder { color: #888; }
+body.tema-claro .sort-select { background: #fff; color: #1a1a2e; border-color: rgba(168,85,247,0.3); }
+body.tema-claro .filter-chip { background: #e8e3f5; color: #444; border-color: rgba(168,85,247,0.2); }
+body.tema-claro .filter-chip.active { background: var(--accent); color: #fff; }
+body.tema-claro .cart-drawer { background: #fff; color: #1a1a2e; }
+body.tema-claro .cart-header { border-bottom-color: rgba(168,85,247,0.15); }
+body.tema-claro .cart-header h3 { color: #1a1a2e; }
+body.tema-claro .cart-footer { background: #f7f5ff; border-top-color: rgba(168,85,247,0.15); }
+body.tema-claro .cart-item-ui { background: #f5f3ff; border-color: rgba(168,85,247,0.15); color: #1a1a2e; }
+body.tema-claro .stock-label { color: #666; }
+body.tema-claro .review-count { color: #666; }
+body.tema-claro footer { background: #e8e4f5; }
+body.tema-claro .footer-card { background: #fff; border-color: rgba(168,85,247,0.15); color: #1a1a2e; }
+body.tema-claro .frete-calc { background: rgba(168,85,247,0.06); }
+body.tema-claro .frete-cep-input { background: #fff; color: #1a1a2e; border-color: rgba(168,85,247,0.3); }
+body.tema-claro #categoryTitle, body.tema-claro .products-header h2 { color: #1a1a2e; }
+body.tema-claro .secondary-btn { color: var(--accent); border-color: var(--accent); }
+body.tema-claro .orders-btn { color: #1a1a2e; }
+
+/* Toggle de tema */
+.theme-toggle-btn {
+  background: rgba(168,85,247,0.1);
+  border: 1.5px solid rgba(168,85,247,0.3);
+  border-radius: 999px;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--text);
+}
+.theme-toggle-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* =============================================
+   BANNERS DINÂMICOS
+   ============================================= */
+.banners-section {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 5% 20px;
+  background: var(--bg);
+}
+.banners-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.banner-slide {
+  min-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  padding: 40px 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s;
+}
+.banner-slide:hover { transform: scale(1.01); }
+.banner-slide .banner-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(0.45) saturate(1.3);
+  z-index: 0;
+}
+.banner-slide .banner-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 1; pointer-events: none; opacity: 0.6;
+}
+.banner-content { position: relative; z-index: 2; }
+.banner-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.banner-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.banner-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+.banner-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.banner-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.banner-timer {
+  position: absolute;
+  right: 40px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  text-align: center;
+}
+.timer-label { font-size: 11px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.timer-display { display: flex; gap: 6px; }
+.timer-unit {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-width: 52px;
+  text-align: center;
+}
+.timer-num { font-family: var(--font-display, 'Bebas Neue', sans-serif); font-size: 28px; color: #fff; line-height: 1; display: block; }
+.timer-name { font-size: 9px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+.banners-dots {
+  display: flex; justify-content: center; gap: 8px;
+  margin-top: 16px;
+}
+.banner-dot {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: rgba(168,85,247,0.3);
+  border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.banner-dot.active {
+  background: var(--accent);
+  width: 24px;
+}
+@media (max-width: 768px) {
+  .banner-slide { padding: 28px 24px; min-height: 180px; }
+  .banner-timer { display: none; }
+  .banner-title { font-size: 1.6rem; }
+}
+
+/* =============================================
+   EASTER EGG — MODO BIZARRO 👁️
+   ============================================= */
+body.modo-bizarro {
+  --accent: #ff0000;
+  animation: bizarro-bg 8s infinite;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='28' font-size='28'%3E👁️%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+@keyframes bizarro-bg {
+  0%   { background: #0a0000; }
+  15%  { background: #00000a; }
+  30%  { background: #05000a; }
+  50%  { background: #000a00; }
+  70%  { background: #0a0005; }
+  85%  { background: #000005; }
+  100% { background: #0a0000; }
+}
+body.modo-bizarro .navbar {
+  background: rgba(5,0,0,0.98) !important;
+  border-bottom: 1px solid #ff000033 !important;
+  animation: navbar-shake 3s infinite;
+}
+@keyframes navbar-shake {
+  0%,100% { transform: translateX(0); }
+  92% { transform: translateX(0); }
+  93% { transform: translateX(-3px); }
+  94% { transform: translateX(3px); }
+  95% { transform: translateX(-2px); }
+  96% { transform: translateX(2px); }
+  97% { transform: translateX(0); }
+}
+body.modo-bizarro .logo-text {
+  color: #ff0000 !important;
+  animation: glitch-text 2s infinite;
+  font-family: monospace !important;
+}
+@keyframes glitch-text {
+  0%,90%,100% { clip-path: none; transform: none; }
+  91% { clip-path: inset(20% 0 60% 0); transform: translateX(-4px); color: #0ff; }
+  92% { clip-path: inset(50% 0 20% 0); transform: translateX(4px); color: #f0f; }
+  93% { clip-path: none; transform: none; }
+}
+body.modo-bizarro .hero {
+  background: #000 !important;
+  position: relative;
+  overflow: hidden;
+}
+body.modo-bizarro .hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,0,0,0.04) 3px, rgba(255,0,0,0.04) 4px);
+  pointer-events: none; z-index: 1;
+  animation: scanlines-move 6s linear infinite;
+}
+@keyframes scanlines-move { from { background-position: 0 0; } to { background-position: 0 100px; } }
+body.modo-bizarro .hero-title {
+  color: #ff0000 !important;
+  animation: flicker 4s infinite;
+  font-family: monospace !important;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #ff000088 !important;
+}
+body.modo-bizarro .hero-title::before {
+  content: "VOCÊ JÁ COMPROU AQUI ANTES.";
+  display: block;
+  font-size: 0.45em;
+  color: #550000;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+  animation: flicker 2.3s infinite reverse;
+}
+body.modo-bizarro .hero-title > * { display: none !important; }
+body.modo-bizarro .hero-title::after {
+  content: "ELE SEMPRE ESTEVE AQUI.";
+  display: block;
+  font-size: 0.35em;
+  color: #330000;
+  letter-spacing: 6px;
+  margin-top: 12px;
+  animation: flicker 3.7s infinite;
+}
+@keyframes flicker {
+  0%,95%,100% { opacity: 1; }
+  96% { opacity: 0.1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 0.2; }
+  99% { opacity: 1; }
+}
+body.modo-bizarro .card {
+  background: #050000 !important;
+  border: 1px solid #ff000044 !important;
+  animation: card-breathe 4s ease-in-out infinite;
+}
+@keyframes card-breathe {
+  0%,100% { box-shadow: 0 0 5px #ff000033; }
+  50% { box-shadow: 0 0 20px #ff000077, 0 0 40px #ff000022; }
+}
+body.modo-bizarro .card:hover {
+  border-color: #ff0000 !important;
+  box-shadow: 0 0 30px #ff0000aa !important;
+  transform: translateY(-4px) rotate(0.5deg) !important;
+}
+body.modo-bizarro .card h3 { color: #ff4444 !important; font-family: monospace !important; }
+body.modo-bizarro .card-img-container {
+  background: #0a0000 !important;
+  border-color: #ff000033 !important;
+  filter: grayscale(0.3) sepia(0.3) hue-rotate(300deg);
+}
+body.modo-bizarro .card-price { color: #ff0000 !important; }
+body.modo-bizarro .add-btn {
+  background: #3a0000 !important;
+  border-color: #ff0000 !important;
+  font-family: monospace !important;
+  letter-spacing: 1px;
+}
+body.modo-bizarro .add-btn:hover { background: #800000 !important; box-shadow: 0 0 15px #ff000088 !important; }
+body.modo-bizarro .cart-btn { animation: pulse-red 2s ease-in-out infinite; }
+@keyframes pulse-red {
+  0%,100% { box-shadow: 0 0 5px #ff000055; }
+  50% { box-shadow: 0 0 20px #ff0000aa; }
+}
+body.modo-bizarro .filter-chip.active { background: #800000 !important; }
+body.modo-bizarro .featured-section { background: #030000 !important; }
+body.modo-bizarro .featured-card { background: #050000 !important; border-color: #ff000033 !important; }
+body.modo-bizarro footer { background: #030000 !important; border-top-color: #ff000033 !important; }
+
+/* Overlay de mensagem perturbadora */
+#bizarro-msg {
+  position: fixed;
+  bottom: 30px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.95);
+  border: 1px solid #ff000055;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 13px;
+  color: #ff4444;
+  z-index: 99999;
+  pointer-events: none;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: msg-appear 0.5s ease;
+  box-shadow: 0 0 30px #ff000044;
+  max-width: 90vw;
+}
+@keyframes msg-appear { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+
+/* Olho piscando no canto */
+#bizarro-eye {
+  position: fixed;
+  bottom: 80px; right: 30px;
+  font-size: 48px;
+  z-index: 99998;
+  animation: eye-blink 4s ease-in-out infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px #ff0000);
+}
+@keyframes eye-blink {
+  0%,45%,55%,100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.05); }
 }
